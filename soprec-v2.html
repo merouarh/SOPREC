@@ -1,0 +1,2063 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SOPREC – Société de Constructions Préfabriquées. Leader en construction préfabriquée, bâtiments métalliques et hangars industriels en Algérie. Basé à Chlef.">
+<meta name="keywords" content="construction préfabriquée Algérie, bâtiments métalliques, hangars métalliques, construction Chlef, SOPREC">
+<title>SOPREC – Société de Constructions Préfabriquées | Chlef, Algérie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════ */
+:root {
+  --red:       #CC0000;
+  --red-deep:  #A00000;
+  --red-light: #FF2222;
+  --black:     #0D0D0D;
+  --ink:       #1A1A1A;
+  --ink-mid:   #333333;
+  --ink-soft:  #555555;
+  --ink-muted: #888888;
+  --rule:      #E0E0E0;
+  --rule-light:#F0F0F0;
+  --bg:        #FCFCFC;
+  --bg-off:    #F4F4F4;
+  --bg-dark:   #111111;
+  --white:     #FFFFFF;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-md: 0 8px 32px rgba(0,0,0,0.12);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+  --radius:    0px;
+  --tr:        0.30s cubic-bezier(.4,0,.2,1);
+  --font-head: 'Oswald', sans-serif;
+  --font-body: 'Source Sans 3', sans-serif;
+}
+[data-theme="dark"] {
+  --black:     #F0F0F0;
+  --ink:       #E8E8E8;
+  --ink-mid:   #CCCCCC;
+  --ink-soft:  #AAAAAA;
+  --ink-muted: #777777;
+  --rule:      #2A2A2A;
+  --rule-light:#222222;
+  --bg:        #121212;
+  --bg-off:    #1A1A1A;
+  --bg-dark:   #0A0A0A;
+  --white:     #1E1E1E;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
+  --shadow-md: 0 8px 32px rgba(0,0,0,0.5);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+/* ═══════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body[dir="rtl"]{font-family:'Source Sans 3',sans-serif}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+ul{list-style:none}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--red)}
+
+/* ═══════════════════════════════════════════
+   UTILITY
+═══════════════════════════════════════════ */
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+/* ═══════════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════════ */
+#navbar{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:68px;
+  background:var(--white);
+  border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;
+  transition:box-shadow var(--tr);
+}
+#navbar.scrolled{box-shadow:var(--shadow-md)}
+.nav-inner{
+  max-width:1180px;margin:0 auto;padding:0 24px;
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+
+/* Logo */
+.nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer;flex-shrink:0}
+.logo-mark{
+  width:38px;height:38px;background:var(--red);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.logo-mark svg{width:22px;height:22px;fill:#fff}
+.logo-text{
+  font-family:var(--font-head);
+  font-size:1.25rem;letter-spacing:3px;font-weight:700;
+  color:var(--red);line-height:1;
+}
+.logo-text span{display:block;font-size:0.52rem;letter-spacing:2px;font-weight:400;color:var(--ink-muted);margin-top:2px;font-family:var(--font-body)}
+
+/* Nav links */
+.nav-links{display:flex;align-items:center;gap:0}
+.nav-links a{
+  padding:8px 14px;
+  font-size:0.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;
+  color:var(--ink-soft);
+  border-bottom:2px solid transparent;
+  transition:color var(--tr),border-color var(--tr);
+  white-space:nowrap;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--red);border-bottom-color:var(--red)}
+
+/* Nav right */
+.nav-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.lang-sel{
+  font-family:var(--font-body);font-size:0.78rem;font-weight:600;
+  color:var(--ink-soft);background:var(--bg-off);
+  border:1px solid var(--rule);padding:6px 10px;cursor:pointer;
+  transition:border-color var(--tr),color var(--tr);
+  letter-spacing:0.5px;
+}
+.lang-sel:hover{border-color:var(--red);color:var(--red)}
+.btn-theme{
+  width:34px;height:34px;background:var(--bg-off);border:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:center;
+  transition:all var(--tr);flex-shrink:0;
+}
+.btn-theme:hover{background:var(--red);border-color:var(--red)}
+.btn-theme:hover svg{stroke:#fff}
+.btn-theme svg{width:16px;height:16px;stroke:var(--ink-soft);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:stroke var(--tr)}
+.btn-quote{
+  padding:10px 20px;background:var(--red);color:#fff;
+  font-family:var(--font-head);font-size:0.78rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  transition:background var(--tr),transform var(--tr);white-space:nowrap;
+}
+.btn-quote:hover{background:var(--red-deep);transform:translateY(-1px)}
+
+/* Hamburger */
+.hamburger{display:none;flex-direction:column;gap:5px;padding:6px;cursor:pointer;flex-shrink:0}
+.hamburger span{width:22px;height:2px;background:var(--ink);display:block;transition:all var(--tr)}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Mobile menu */
+.mobile-menu{
+  display:none;position:fixed;top:68px;left:0;right:0;
+  background:var(--white);border-bottom:1px solid var(--rule);
+  z-index:999;padding:16px 24px 24px;
+  flex-direction:column;gap:2px;
+  box-shadow:var(--shadow-md);
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{
+  padding:13px 16px;font-size:0.9rem;font-weight:600;
+  letter-spacing:0.5px;color:var(--ink-soft);
+  border-left:3px solid transparent;
+  transition:all var(--tr);
+}
+.mobile-menu a:hover{color:var(--red);border-left-color:var(--red);background:var(--bg-off)}
+.mobile-menu-bottom{padding-top:16px;border-top:1px solid var(--rule);margin-top:8px;display:flex;gap:10px;align-items:center}
+
+/* ═══════════════════════════════════════════
+   PAGES
+═══════════════════════════════════════════ */
+.page{display:none}
+.page.active{display:block}
+
+/* ═══════════════════════════════════════════
+   SECTION BASE
+═══════════════════════════════════════════ */
+section{padding:88px 0}
+.sec-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:0.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:var(--red);margin-bottom:14px;
+}
+.sec-eyebrow::before{content:'';width:24px;height:2px;background:var(--red)}
+.sec-h2{
+  font-family:var(--font-head);
+  font-size:clamp(2rem,3.5vw,3rem);
+  font-weight:700;letter-spacing:1px;
+  color:var(--ink);line-height:1.05;margin-bottom:16px;
+}
+.sec-lead{
+  font-size:1rem;color:var(--ink-soft);
+  max-width:540px;line-height:1.75;
+}
+.sec-head{margin-bottom:56px}
+.sec-head.center{text-align:center}
+.sec-head.center .sec-lead{margin:0 auto}
+.sec-head.center .sec-eyebrow{display:flex;justify-content:center}
+.sec-head.between{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:48px}
+
+/* Buttons */
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 28px;background:var(--red);color:#fff;
+  font-family:var(--font-head);font-size:0.82rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  transition:background var(--tr),transform var(--tr),box-shadow var(--tr);
+}
+.btn-primary:hover{background:var(--red-deep);transform:translateY(-2px);box-shadow:0 8px 24px rgba(204,0,0,0.3)}
+.btn-primary svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 28px;border:2px solid var(--ink);color:var(--ink);
+  font-family:var(--font-head);font-size:0.82rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  transition:all var(--tr);
+}
+.btn-outline:hover{border-color:var(--red);color:var(--red)}
+.btn-outline svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;transition:stroke var(--tr)}
+.btn-outline-white{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 28px;border:2px solid rgba(255,255,255,0.5);color:#fff;
+  font-family:var(--font-head);font-size:0.82rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  transition:all var(--tr);
+}
+.btn-outline-white:hover{border-color:#fff;background:rgba(255,255,255,0.1)}
+.btn-outline-white svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+#hero{
+  min-height:100vh;position:relative;overflow:hidden;
+  background:var(--bg-dark);
+  display:flex;align-items:center;padding-top:68px;
+}
+.hero-texture{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
+  background-size:50px 50px;
+}
+.hero-red-bar{
+  position:absolute;top:0;left:0;width:6px;height:100%;background:var(--red);
+}
+.hero-inner{
+  position:relative;z-index:2;
+  width:100%;display:grid;grid-template-columns:1fr 420px;gap:60px;align-items:center;
+  padding:80px 0;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:0.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:var(--red);margin-bottom:24px;
+}
+.hero-eyebrow-line{width:32px;height:1px;background:var(--red)}
+.hero-h1{
+  font-family:var(--font-head);
+  font-size:clamp(3.2rem,5.5vw,5.2rem);
+  font-weight:700;line-height:0.95;letter-spacing:1px;
+  color:#FFFFFF;margin-bottom:28px;
+}
+.hero-h1 em{color:var(--red);font-style:normal}
+.hero-sub{
+  font-size:1.05rem;color:rgba(255,255,255,0.6);
+  max-width:520px;line-height:1.75;margin-bottom:40px;
+}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.hero-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);
+  padding:36px 32px;
+}
+.hero-card-title{
+  font-family:var(--font-head);font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;
+  color:var(--red);margin-bottom:28px;display:flex;align-items:center;gap:8px;
+}
+.hero-card-title::before{content:'';flex:1;height:1px;background:rgba(255,255,255,0.1)}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.08)}
+.hero-stat{
+  background:rgba(255,255,255,0.03);padding:24px 20px;text-align:center;
+}
+.hero-stat-n{
+  font-family:var(--font-head);font-size:2.8rem;font-weight:700;
+  color:#fff;line-height:1;margin-bottom:6px;
+}
+.hero-stat-n span{color:var(--red)}
+.hero-stat-l{font-size:0.72rem;color:rgba(255,255,255,0.5);letter-spacing:1.5px;text-transform:uppercase}
+.hero-cert{
+  margin-top:1px;background:rgba(204,0,0,0.12);
+  border-top:2px solid var(--red);
+  padding:16px 20px;display:flex;align-items:center;gap:14px;
+}
+.hero-cert-icon{width:36px;height:36px;flex-shrink:0}
+.hero-cert-icon svg{width:100%;height:100%;stroke:var(--red);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.hero-cert-text small{display:block;font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+.hero-cert-text strong{display:block;font-size:0.88rem;color:#fff;font-weight:600}
+.hero-scroll{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.3);
+  animation:bounce 2s infinite;
+}
+.hero-scroll svg{width:18px;height:18px;stroke:rgba(255,255,255,0.3);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+/* ═══════════════════════════════════════════
+   STATS BAND
+═══════════════════════════════════════════ */
+#stats-band{
+  background:var(--red);padding:0;
+}
+.stats-band-inner{
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.stat-item{
+  padding:40px 24px;text-align:center;position:relative;
+}
+.stat-item:not(:last-child)::after{
+  content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);
+  width:1px;height:40%;background:rgba(255,255,255,0.2);
+}
+.stat-num{
+  font-family:var(--font-head);font-size:3rem;font-weight:700;
+  color:#fff;line-height:1;display:block;margin-bottom:8px;
+}
+.stat-num sup{font-size:1.5rem;vertical-align:super}
+.stat-lbl{
+  font-size:0.72rem;color:rgba(255,255,255,0.75);
+  text-transform:uppercase;letter-spacing:2px;
+}
+
+/* ═══════════════════════════════════════════
+   SERVICES GRID
+═══════════════════════════════════════════ */
+#services-prev{background:var(--bg)}
+.srv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule)}
+.srv-card{
+  background:var(--bg);padding:32px 28px;
+  border-bottom:3px solid transparent;
+  transition:border-color var(--tr),background var(--tr),transform var(--tr);
+  cursor:pointer;position:relative;overflow:hidden;
+}
+.srv-card:hover{border-bottom-color:var(--red);background:var(--bg-off)}
+.srv-icon{
+  width:48px;height:48px;margin-bottom:20px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg-off);border:1px solid var(--rule);
+  transition:background var(--tr),border-color var(--tr);
+}
+.srv-card:hover .srv-icon{background:var(--red);border-color:var(--red)}
+.srv-icon svg{width:24px;height:24px;stroke:var(--ink-soft);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke var(--tr)}
+.srv-card:hover .srv-icon svg{stroke:#fff}
+.srv-h3{
+  font-family:var(--font-head);font-size:1rem;font-weight:600;
+  letter-spacing:0.5px;color:var(--ink);margin-bottom:10px;
+}
+.srv-desc{font-size:0.83rem;color:var(--ink-soft);line-height:1.65}
+.srv-arrow{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  color:var(--red);margin-top:16px;
+  transition:gap var(--tr);
+}
+.srv-card:hover .srv-arrow{gap:10px}
+.srv-arrow svg{width:14px;height:14px;stroke:var(--red);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* ═══════════════════════════════════════════
+   ABOUT SNIPPET
+═══════════════════════════════════════════ */
+#about-snip{background:var(--bg-off)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-visual{position:relative}
+.about-img{
+  width:100%;aspect-ratio:4/3;
+  background:var(--bg-dark);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.about-img-pattern{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
+  background-size:30px 30px;
+}
+.about-img-icon{position:relative;z-index:1;text-align:center}
+.about-img-icon svg{width:80px;height:80px;stroke:rgba(255,255,255,0.15);fill:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round}
+.about-img-icon p{font-size:0.75rem;color:rgba(255,255,255,0.3);letter-spacing:2px;text-transform:uppercase;margin-top:12px}
+.about-badge{
+  position:absolute;bottom:-24px;right:-24px;
+  background:var(--red);color:#fff;
+  padding:24px 28px;text-align:center;
+  box-shadow:var(--shadow-lg);
+}
+.about-badge strong{
+  font-family:var(--font-head);font-size:2.4rem;font-weight:700;
+  display:block;line-height:1;
+}
+.about-badge span{font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;opacity:0.85}
+.about-checks{margin:24px 0 32px;display:flex;flex-direction:column;gap:12px}
+.about-check{display:flex;align-items:flex-start;gap:12px;font-size:0.9rem;color:var(--ink-soft)}
+.about-check-icon{
+  width:20px;height:20px;flex-shrink:0;margin-top:1px;
+  background:var(--red);display:flex;align-items:center;justify-content:center;
+}
+.about-check-icon svg{width:11px;height:11px;stroke:#fff;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+
+/* ═══════════════════════════════════════════
+   WHY US
+═══════════════════════════════════════════ */
+#why{background:var(--bg)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule)}
+.why-card{
+  background:var(--bg);padding:40px 32px;
+  transition:background var(--tr);
+  position:relative;
+}
+.why-card:hover{background:var(--bg-off)}
+.why-num{
+  font-family:var(--font-head);font-size:3.5rem;font-weight:700;
+  color:var(--rule-light);position:absolute;top:24px;right:24px;line-height:1;
+  transition:color var(--tr);
+}
+.why-card:hover .why-num{color:rgba(204,0,0,0.08)}
+.why-icon-wrap{
+  width:48px;height:48px;background:var(--bg-dark);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;
+}
+.why-icon-wrap svg{width:24px;height:24px;stroke:var(--red);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.why-h3{font-family:var(--font-head);font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:10px;letter-spacing:0.3px}
+.why-p{font-size:0.85rem;color:var(--ink-soft);line-height:1.7}
+
+/* ═══════════════════════════════════════════
+   PROJECTS
+═══════════════════════════════════════════ */
+#proj-prev{background:var(--bg-off)}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--rule)}
+.proj-card{
+  background:var(--bg-dark);
+  aspect-ratio:4/3;position:relative;overflow:hidden;
+  cursor:pointer;
+}
+.proj-card.tall{grid-row:span 2;aspect-ratio:auto}
+.proj-img{
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg-dark);
+  position:relative;
+}
+.proj-img-inner{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);
+  background-size:20px 20px;
+  display:flex;align-items:center;justify-content:center;
+  transition:opacity var(--tr);
+}
+.proj-img-inner svg{width:52px;height:52px;stroke:rgba(255,255,255,0.12);fill:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round}
+.proj-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,rgba(0,0,0,0.2) 60%,transparent 100%);
+  padding:24px;display:flex;flex-direction:column;justify-content:flex-end;
+  transform:translateY(8px);transition:transform var(--tr);
+}
+.proj-card:hover .proj-overlay{transform:translateY(0)}
+.proj-card:hover .proj-img-inner{opacity:0.6}
+.proj-type{
+  font-size:0.65rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--red);margin-bottom:6px;
+  display:flex;align-items:center;gap:6px;
+}
+.proj-type::before{content:'';width:16px;height:1px;background:var(--red)}
+.proj-title{font-family:var(--font-head);font-size:1rem;font-weight:600;color:#fff;letter-spacing:0.3px}
+.proj-desc{font-size:0.78rem;color:rgba(255,255,255,0.6);margin-top:6px;line-height:1.5}
+
+/* ═══════════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════════ */
+#testimonials{background:var(--bg)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule)}
+.testi-card{
+  background:var(--bg);padding:36px 32px;
+  border-top:3px solid var(--rule);
+  transition:border-color var(--tr),background var(--tr);
+}
+.testi-card:hover{border-top-color:var(--red);background:var(--bg-off)}
+.testi-quote svg{width:28px;height:28px;fill:var(--red);opacity:0.2;margin-bottom:16px}
+.testi-stars{display:flex;gap:3px;margin-bottom:14px}
+.testi-stars svg{width:14px;height:14px;fill:var(--red)}
+.testi-text{font-size:0.9rem;color:var(--ink-soft);line-height:1.75;font-style:italic;margin-bottom:24px}
+.testi-author{display:flex;align-items:center;gap:14px}
+.testi-av{
+  width:44px;height:44px;background:var(--red);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-head);font-size:1rem;font-weight:700;color:#fff;
+}
+.testi-name{font-size:0.88rem;font-weight:700;color:var(--ink);margin-bottom:2px}
+.testi-role{font-size:0.75rem;color:var(--ink-muted)}
+
+/* ═══════════════════════════════════════════
+   CTA BAND
+═══════════════════════════════════════════ */
+#cta-band{
+  background:var(--bg-dark);padding:88px 0;
+  position:relative;overflow:hidden;
+}
+.cta-texture{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);
+  background-size:40px 40px;
+}
+.cta-red-line{position:absolute;top:0;left:0;right:0;height:4px;background:var(--red)}
+.cta-inner{position:relative;z-index:1;text-align:center}
+.cta-h2{
+  font-family:var(--font-head);font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:700;letter-spacing:1px;color:#fff;margin-bottom:16px;
+}
+.cta-p{font-size:1rem;color:rgba(255,255,255,0.55);margin-bottom:40px;max-width:560px;margin-left:auto;margin-right:auto;margin-bottom:40px}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer{background:var(--ink);padding:64px 0 0}
+.foot-grid{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:48px;
+  margin-bottom:48px;
+}
+.foot-brand-desc{
+  font-size:0.85rem;color:rgba(255,255,255,0.45);
+  line-height:1.75;margin:16px 0 24px;max-width:290px;
+}
+.foot-social{display:flex;gap:8px}
+.foot-soc{
+  width:36px;height:36px;background:rgba(255,255,255,0.06);
+  display:flex;align-items:center;justify-content:center;
+  transition:background var(--tr);
+}
+.foot-soc:hover{background:var(--red)}
+.foot-soc svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.foot-soc.filled svg{fill:#fff;stroke:none}
+.foot-col h4{
+  font-family:var(--font-head);font-size:0.72rem;font-weight:600;
+  letter-spacing:3px;text-transform:uppercase;color:#fff;
+  margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.foot-col ul li{margin-bottom:10px}
+.foot-col ul li a{
+  font-size:0.85rem;color:rgba(255,255,255,0.45);
+  transition:color var(--tr);
+}
+.foot-col ul li a:hover{color:#fff}
+.foot-contact li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:0.83rem;color:rgba(255,255,255,0.45);margin-bottom:14px;
+}
+.foot-contact li svg{width:15px;height:15px;stroke:var(--red);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-top:2px}
+.foot-bottom{
+  border-top:1px solid rgba(255,255,255,0.08);
+  padding:24px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+.foot-copy{font-size:0.78rem;color:rgba(255,255,255,0.3)}
+.foot-copy span{color:var(--red)}
+.foot-logo-small{
+  font-family:var(--font-head);font-size:1rem;letter-spacing:3px;font-weight:700;
+  color:var(--red);
+}
+
+/* ═══════════════════════════════════════════
+   ABOUT PAGE
+═══════════════════════════════════════════ */
+.page-hero{
+  padding:140px 0 72px;
+  background:var(--bg-dark);position:relative;overflow:hidden;
+  border-bottom:4px solid var(--red);
+}
+.page-hero-texture{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);
+  background-size:40px 40px;
+}
+.page-hero-bar{position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--red)}
+.page-hero-inner{position:relative;z-index:1}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px}
+.breadcrumb a{font-size:0.75rem;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;transition:color var(--tr)}
+.breadcrumb a:hover{color:#fff}
+.breadcrumb svg{width:10px;height:10px;stroke:rgba(255,255,255,0.3);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.breadcrumb span{font-size:0.75rem;color:var(--red);letter-spacing:1px;text-transform:uppercase}
+.page-h1{
+  font-family:var(--font-head);font-size:clamp(2.5rem,5vw,4.5rem);
+  font-weight:700;letter-spacing:1px;color:#fff;line-height:1;
+}
+
+/* Timeline */
+.timeline{padding-left:28px;border-left:2px solid var(--rule)}
+.tl-item{position:relative;margin-bottom:36px;padding-left:24px}
+.tl-item::before{
+  content:'';position:absolute;left:-36px;top:5px;
+  width:12px;height:12px;background:var(--red);border:3px solid var(--bg);
+  box-shadow:0 0 0 2px var(--red);
+}
+.tl-year{
+  font-family:var(--font-head);font-size:1.1rem;font-weight:700;
+  color:var(--red);margin-bottom:4px;letter-spacing:1px;
+}
+.tl-text{font-size:0.88rem;color:var(--ink-soft);line-height:1.65}
+
+/* Team */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule)}
+.team-card{
+  background:var(--bg);padding:32px 28px;text-align:center;
+  border-top:3px solid transparent;
+  transition:border-color var(--tr),background var(--tr);
+}
+.team-card:hover{border-top-color:var(--red);background:var(--bg-off)}
+.team-av{
+  width:80px;height:80px;background:var(--bg-dark);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px;
+  font-family:var(--font-head);font-size:1.8rem;font-weight:700;color:var(--red);
+  border:2px solid var(--rule);
+}
+.team-name{font-family:var(--font-head);font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:4px}
+.team-role{
+  font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--red);margin-bottom:12px;
+}
+.team-bio{font-size:0.82rem;color:var(--ink-soft);line-height:1.65}
+
+/* Values */
+.values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule)}
+.val-card{
+  background:var(--bg-off);padding:32px;display:flex;gap:20px;align-items:flex-start;
+  transition:background var(--tr);
+}
+.val-card:hover{background:var(--bg)}
+.val-icon{
+  width:44px;height:44px;background:var(--red);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.val-icon svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.val-h4{font-family:var(--font-head);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:6px}
+.val-p{font-size:0.83rem;color:var(--ink-soft);line-height:1.65}
+
+/* Key numbers */
+.keynums{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule)}
+.keynum{
+  background:var(--bg-off);padding:32px 24px;text-align:center;
+  border-top:3px solid var(--rule);transition:border-color var(--tr);
+}
+.keynum:hover{border-top-color:var(--red)}
+.keynum-n{
+  font-family:var(--font-head);font-size:2.5rem;font-weight:700;
+  color:var(--ink);line-height:1;margin-bottom:8px;
+}
+.keynum-l{font-size:0.75rem;color:var(--ink-muted);text-transform:uppercase;letter-spacing:1.5px}
+
+/* ═══════════════════════════════════════════
+   SERVICES PAGE
+═══════════════════════════════════════════ */
+.srv-cats{display:flex;flex-direction:column;gap:2px;background:var(--rule)}
+.srv-cat{background:var(--bg)}
+.srv-cat-head{
+  display:flex;align-items:center;gap:20px;padding:28px 32px;
+  border-left:4px solid transparent;cursor:pointer;
+  transition:background var(--tr),border-color var(--tr);
+}
+.srv-cat-head:hover,.srv-cat-head.open{background:var(--bg-off);border-left-color:var(--red)}
+.srv-cat-n{
+  font-family:var(--font-head);font-size:1.6rem;font-weight:700;
+  color:var(--rule);min-width:40px;transition:color var(--tr);
+}
+.srv-cat-head:hover .srv-cat-n,.srv-cat-head.open .srv-cat-n{color:var(--red)}
+.srv-cat-ico{
+  width:44px;height:44px;background:var(--bg-off);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  border:1px solid var(--rule);transition:all var(--tr);
+}
+.srv-cat-head:hover .srv-cat-ico,.srv-cat-head.open .srv-cat-ico{background:var(--red);border-color:var(--red)}
+.srv-cat-ico svg{width:22px;height:22px;stroke:var(--ink-soft);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke var(--tr)}
+.srv-cat-head:hover .srv-cat-ico svg,.srv-cat-head.open .srv-cat-ico svg{stroke:#fff}
+.srv-cat-label{flex:1;font-family:var(--font-head);font-size:1.1rem;font-weight:600;color:var(--ink);letter-spacing:0.3px}
+.srv-cat-chevron{width:20px;height:20px;flex-shrink:0;transition:transform var(--tr)}
+.srv-cat-chevron svg{width:20px;height:20px;stroke:var(--ink-muted);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.srv-cat-head.open .srv-cat-chevron{transform:rotate(180deg)}
+.srv-cat-body{
+  display:none;padding:0 32px 32px 100px;
+  grid-template-columns:1fr 2fr;gap:32px;
+}
+.srv-cat-body.open{display:grid}
+.srv-cat-desc{font-size:0.9rem;color:var(--ink-soft);line-height:1.75}
+.srv-sub-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.srv-sub{
+  display:flex;align-items:center;gap:10px;padding:12px 16px;
+  background:var(--bg-off);border-left:2px solid transparent;
+  font-size:0.83rem;color:var(--ink-soft);
+  transition:all var(--tr);
+}
+.srv-sub:hover{border-left-color:var(--red);color:var(--ink);background:var(--bg)}
+.srv-sub svg{width:14px;height:14px;stroke:var(--red);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+
+/* ═══════════════════════════════════════════
+   PROJECTS PAGE
+═══════════════════════════════════════════ */
+.filter-bar{display:flex;gap:2px;flex-wrap:wrap;margin-bottom:24px;background:var(--rule)}
+.flt-btn{
+  padding:12px 24px;background:var(--bg);font-family:var(--font-head);
+  font-size:0.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--ink-soft);border-bottom:2px solid transparent;
+  transition:all var(--tr);
+}
+.flt-btn:hover,.flt-btn.active{color:var(--red);border-bottom-color:var(--red);background:var(--bg-off)}
+.proj-full-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--rule);
+}
+.proj-full-card{
+  background:var(--bg-dark);aspect-ratio:4/3;position:relative;overflow:hidden;cursor:pointer;
+}
+.proj-full-card .proj-img-inner{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  transition:opacity var(--tr);
+}
+.proj-full-card:hover .proj-img-inner{opacity:0.5}
+.proj-full-card .proj-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,0.88) 0%,transparent 60%);
+  padding:24px;display:flex;flex-direction:column;justify-content:flex-end;
+  transform:translateY(8px);transition:transform var(--tr);
+}
+.proj-full-card:hover .proj-overlay{transform:translateY(0)}
+
+/* ═══════════════════════════════════════════
+   CONTACT PAGE
+═══════════════════════════════════════════ */
+#contact-page-body{background:var(--bg-off)}
+.contact-grid{display:grid;grid-template-columns:3fr 2fr;gap:2px;background:var(--rule);align-items:start}
+.contact-form-wrap{background:var(--bg);padding:48px 40px}
+.form-title{font-family:var(--font-head);font-size:1.8rem;font-weight:700;letter-spacing:1px;color:var(--ink);margin-bottom:6px}
+.form-sub{font-size:0.88rem;color:var(--ink-muted);margin-bottom:32px}
+.form-group{margin-bottom:20px}
+.form-label{display:block;font-size:0.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
+.form-input,.form-textarea,.form-select{
+  width:100%;padding:13px 16px;
+  background:var(--bg-off);border:1px solid var(--rule);
+  color:var(--ink);font-family:var(--font-body);font-size:0.9rem;
+  transition:border-color var(--tr),background var(--tr);outline:none;
+  -webkit-appearance:none;
+}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--ink-muted)}
+.form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--red);background:var(--bg)}
+.form-textarea{resize:vertical;min-height:130px}
+.form-select option{background:var(--bg)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.btn-submit{
+  width:100%;padding:16px;background:var(--red);color:#fff;
+  font-family:var(--font-head);font-size:0.85rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:background var(--tr);
+}
+.btn-submit:hover{background:var(--red-deep)}
+.btn-submit svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.contact-info-wrap{background:var(--bg-dark);padding:48px 36px;display:flex;flex-direction:column;gap:28px}
+.contact-info-title{
+  font-family:var(--font-head);font-size:1.4rem;font-weight:700;
+  letter-spacing:1px;color:#fff;margin-bottom:4px;
+}
+.contact-info-sub{font-size:0.85rem;color:rgba(255,255,255,0.4);margin-bottom:16px}
+.ci-item{display:flex;gap:16px;align-items:flex-start}
+.ci-icon{
+  width:40px;height:40px;background:rgba(204,0,0,0.15);border:1px solid rgba(204,0,0,0.25);
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+}
+.ci-icon svg{width:18px;height:18px;stroke:var(--red);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ci-label{font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:4px}
+.ci-val{font-size:0.9rem;color:#fff;font-weight:500}
+.ci-sub{font-size:0.78rem;color:rgba(255,255,255,0.4);margin-top:2px}
+.map-box{
+  background:rgba(255,255,255,0.04);border:1px dashed rgba(255,255,255,0.1);
+  padding:28px;display:flex;flex-direction:column;align-items:center;
+  text-align:center;gap:12px;
+}
+.map-box svg{width:36px;height:36px;stroke:var(--red);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.map-box p{font-size:0.82rem;color:rgba(255,255,255,0.4)}
+.map-box a{
+  font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  color:var(--red);display:flex;align-items:center;gap:6px;
+}
+.map-box a svg{width:12px;height:12px}
+.form-success-state{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:60px 20px;text-align:center;gap:16px;
+}
+.form-success-state svg{width:56px;height:56px;stroke:var(--red);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.form-success-state h3{font-family:var(--font-head);font-size:2rem;font-weight:700;letter-spacing:1px;color:var(--ink)}
+.form-success-state p{font-size:0.9rem;color:var(--ink-soft)}
+
+/* ═══════════════════════════════════════════
+   SCROLL ANIMATIONS
+═══════════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.in{opacity:1;transform:none}
+.reveal:nth-child(2){transition-delay:.08s}
+.reveal:nth-child(3){transition-delay:.16s}
+.reveal:nth-child(4){transition-delay:.24s}
+.reveal:nth-child(5){transition-delay:.32s}
+.reveal:nth-child(6){transition-delay:.40s}
+.reveal:nth-child(7){transition-delay:.48s}
+.reveal:nth-child(8){transition-delay:.56s}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media(max-width:1024px){
+  .srv-grid{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .hero-inner{grid-template-columns:1fr}
+  .hero-card{display:none}
+  .about-grid{grid-template-columns:1fr}
+  .about-visual{display:none}
+  .proj-grid{grid-template-columns:repeat(2,1fr)}
+  .proj-card.tall{grid-row:span 1;aspect-ratio:4/3}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .keynums{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:1fr}
+  .srv-cat-body{padding-left:32px}
+}
+@media(max-width:768px){
+  section{padding:64px 0}
+  .nav-links,.btn-quote{display:none}
+  .hamburger{display:flex}
+  .hero-h1{font-size:clamp(2.5rem,8vw,3.5rem)}
+  .hero-ctas{flex-direction:column;align-items:flex-start}
+  .stats-band-inner{grid-template-columns:repeat(2,1fr)}
+  .stat-item:nth-child(2)::after{display:none}
+  .srv-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .proj-grid,.proj-full-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .foot-bottom{flex-direction:column;text-align:center}
+  .values-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr}
+  .keynums{grid-template-columns:repeat(2,1fr)}
+  .srv-sub-grid{grid-template-columns:1fr}
+  .srv-cat-body{grid-template-columns:1fr;padding-left:24px;padding-right:24px}
+  .contact-form-wrap{padding:32px 24px}
+  .contact-info-wrap{padding:32px 24px}
+  .form-row{grid-template-columns:1fr}
+  .sec-head.between{flex-direction:column;align-items:flex-start}
+  .cta-btns{flex-direction:column;align-items:center}
+  .filter-bar{gap:0}
+}
+@media(max-width:480px){
+  .hero-ctas .btn-primary,.hero-ctas .btn-outline-white{width:100%;justify-content:center}
+  .stats-band-inner{grid-template-columns:1fr 1fr}
+  .keynums{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║           NAVBAR                 ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<nav id="navbar" role="navigation" aria-label="Navigation principale">
+  <div class="nav-inner">
+    <!-- Logo -->
+    <div class="nav-logo" onclick="showPage('home')" role="link" tabindex="0" aria-label="SOPREC Accueil">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="logo-text">SOPREC<span>Constructions Préfabriquées</span></div>
+    </div>
+
+    <!-- Desktop links -->
+    <nav class="nav-links" aria-label="Pages">
+      <a href="#" onclick="showPage('home');return false;" class="active" data-fr="Accueil" data-en="Home" data-ar="الرئيسية">Accueil</a>
+      <a href="#" onclick="showPage('about');return false;" data-fr="Qui sommes-nous" data-en="About" data-ar="من نحن">Qui sommes-nous</a>
+      <a href="#" onclick="showPage('services');return false;" data-fr="Services" data-en="Services" data-ar="الخدمات">Services</a>
+      <a href="#" onclick="showPage('projects');return false;" data-fr="Réalisations" data-en="Projects" data-ar="مشاريعنا">Réalisations</a>
+      <a href="#" onclick="showPage('contact');return false;" data-fr="Contact" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+    </nav>
+
+    <!-- Right controls -->
+    <div class="nav-right">
+      <select class="lang-sel" id="langSel" onchange="setLang(this.value)" aria-label="Langue">
+        <option value="fr">🇫🇷 FR</option>
+        <option value="en">🇬🇧 EN</option>
+        <option value="ar">🇩🇿 AR</option>
+      </select>
+      <button class="btn-theme" onclick="toggleTheme()" id="themeBtn" aria-label="Changer thème">
+        <svg id="theme-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a href="#" class="btn-quote" onclick="showPage('contact');return false;" data-fr="Devis gratuit" data-en="Get a Quote" data-ar="طلب عرض">Devis gratuit</a>
+    </div>
+
+    <!-- Hamburger -->
+    <button class="hamburger" id="ham" onclick="toggleMobile()" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Menu mobile">
+  <a href="#" onclick="navGo('home')" data-fr="Accueil" data-en="Home" data-ar="الرئيسية">Accueil</a>
+  <a href="#" onclick="navGo('about')" data-fr="Qui sommes-nous" data-en="About" data-ar="من نحن">Qui sommes-nous</a>
+  <a href="#" onclick="navGo('services')" data-fr="Services" data-en="Services" data-ar="الخدمات">Services</a>
+  <a href="#" onclick="navGo('projects')" data-fr="Réalisations" data-en="Projects" data-ar="مشاريعنا">Réalisations</a>
+  <a href="#" onclick="navGo('contact')" data-fr="Contact" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+  <div class="mobile-menu-bottom">
+    <select class="lang-sel" onchange="setLang(this.value)" aria-label="Langue mobile">
+      <option value="fr">🇫🇷 FR</option>
+      <option value="en">🇬🇧 EN</option>
+      <option value="ar">🇩🇿 AR</option>
+    </select>
+    <a href="#" class="btn-primary" onclick="navGo('contact')" style="font-size:0.75rem;padding:10px 18px" data-fr="Devis gratuit" data-en="Get Quote" data-ar="طلب عرض">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Devis gratuit
+    </a>
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║           HOME PAGE              ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section id="hero" aria-labelledby="hero-h1">
+    <div class="hero-texture" aria-hidden="true"></div>
+    <div class="hero-red-bar" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <div class="hero-eyebrow"><div class="hero-eyebrow-line"></div><span data-fr="Construction Industrielle · Chlef, Algérie" data-en="Industrial Construction · Chlef, Algeria" data-ar="بناء صناعي · الشلف، الجزائر">Construction Industrielle · Chlef, Algérie</span></div>
+          <h1 class="hero-h1" id="hero-h1">
+            <span data-fr="Bâtir " data-en="Building " data-ar="بناء ">Bâtir </span><em data-fr="l'Algérie" data-en="Algeria" data-ar="الجزائر">l'Algérie</em><br>
+            <span data-fr="de Demain" data-en="of Tomorrow" data-ar="المستقبل">de Demain</span>
+          </h1>
+          <p class="hero-sub" data-fr="SOPREC conçoit et réalise des structures préfabriquées, bâtiments industriels et hangars métalliques depuis 1983. Plus de 850 projets livrés à travers l'Algérie." data-en="SOPREC designs and builds prefabricated structures, industrial buildings and metal hangars since 1983. Over 850 projects delivered across Algeria." data-ar="سوبريك تصمم وتنجز هياكل جاهزة ومبانٍ صناعية وأكواخ معدنية منذ 1983. أكثر من 850 مشروع مسلَّم عبر الجزائر.">SOPREC conçoit et réalise des structures préfabriquées, bâtiments industriels et hangars métalliques depuis 1983. Plus de 850 projets livrés à travers l'Algérie.</p>
+          <div class="hero-ctas">
+            <a href="#" class="btn-primary" onclick="showPage('contact');return false;" data-fr="Demander un devis" data-en="Request a Quote" data-ar="طلب عرض سعر">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              Demander un devis
+            </a>
+            <a href="#" class="btn-outline-white" onclick="showPage('contact');return false;" data-fr="Contactez-nous" data-en="Contact Us" data-ar="اتصل بنا">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.59 8a19.79 19.79 0 01-3.07-8.67A2 2 0 012.44 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.29 6.29l1.27-.69a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              Contactez-nous
+            </a>
+          </div>
+        </div>
+        <!-- Stat card (hidden on mobile) -->
+        <div class="hero-card" aria-label="Chiffres clés SOPREC">
+          <div class="hero-card-title">Chiffres clés</div>
+          <div class="hero-stats">
+            <div class="hero-stat"><div class="hero-stat-n"><span data-count="40">40</span><span>+</span></div><div class="hero-stat-l" data-fr="Ans d'expérience" data-en="Years" data-ar="سنة">Ans d'expérience</div></div>
+            <div class="hero-stat"><div class="hero-stat-n"><span data-count="850">850</span><span>+</span></div><div class="hero-stat-l" data-fr="Projets réalisés" data-en="Projects" data-ar="مشروع">Projets réalisés</div></div>
+            <div class="hero-stat"><div class="hero-stat-n"><span data-count="300">300</span><span>+</span></div><div class="hero-stat-l" data-fr="Clients" data-en="Clients" data-ar="عميل">Clients</div></div>
+            <div class="hero-stat"><div class="hero-stat-n"><span data-count="48">48</span></div><div class="hero-stat-l" data-fr="Wilayas" data-en="Wilayas" data-ar="ولاية">Wilayas</div></div>
+          </div>
+          <div class="hero-cert">
+            <div class="hero-cert-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+            </div>
+            <div class="hero-cert-text">
+              <small data-fr="Certification qualité" data-en="Quality certification" data-ar="شهادة الجودة">Certification qualité</small>
+              <strong>ISO 9001:2015</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </section>
+
+  <!-- STATS BAND -->
+  <div id="stats-band" role="region" aria-label="Statistiques">
+    <div class="stats-band-inner container">
+      <div class="stat-item reveal">
+        <span class="stat-num"><span data-count="40">40</span><sup>+</sup></span>
+        <div class="stat-lbl" data-fr="Ans d'expérience" data-en="Years of experience" data-ar="سنة خبرة">Ans d'expérience</div>
+      </div>
+      <div class="stat-item reveal">
+        <span class="stat-num"><span data-count="850">850</span><sup>+</sup></span>
+        <div class="stat-lbl" data-fr="Projets réalisés" data-en="Completed projects" data-ar="مشروع منجز">Projets réalisés</div>
+      </div>
+      <div class="stat-item reveal">
+        <span class="stat-num"><span data-count="300">300</span><sup>+</sup></span>
+        <div class="stat-lbl" data-fr="Clients satisfaits" data-en="Satisfied clients" data-ar="عميل راضٍ">Clients satisfaits</div>
+      </div>
+      <div class="stat-item reveal">
+        <span class="stat-num"><span data-count="48">48</span></span>
+        <div class="stat-lbl" data-fr="Wilayas couvertes" data-en="Wilayas covered" data-ar="ولاية مغطاة">Wilayas couvertes</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES PREVIEW -->
+  <section id="services-prev" aria-labelledby="srv-h2">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-eyebrow" data-fr="Ce que nous faisons" data-en="What we do" data-ar="ما نقدمه">Ce que nous faisons</div>
+        <h2 class="sec-h2" id="srv-h2" data-fr="Nos Domaines d'Expertise" data-en="Our Areas of Expertise" data-ar="مجالات خبرتنا">Nos Domaines d'Expertise</h2>
+        <p class="sec-lead" data-fr="Une gamme complète de services en construction industrielle, de la conception à la livraison clé en main." data-en="A complete range of industrial construction services, from design to turnkey delivery." data-ar="مجموعة كاملة من خدمات البناء الصناعي، من التصميم إلى التسليم الكامل.">Une gamme complète de services en construction industrielle, de la conception à la livraison clé en main.</p>
+      </div>
+    </div>
+    <div class="container" style="padding:0 24px">
+      <div class="srv-grid">
+        <div class="srv-card reveal" onclick="showPage('services')">
+          <div class="srv-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <h3 class="srv-h3" data-fr="Construction & Bâtiments" data-en="Construction & Buildings" data-ar="البناء والمباني">Construction & Bâtiments</h3>
+          <p class="srv-desc" data-fr="Bâtiments industriels, entrepôts et structures commerciales adaptés à vos besoins." data-en="Industrial buildings, warehouses and commercial structures adapted to your needs." data-ar="مبانٍ صناعية ومستودعات وهياكل تجارية مكيّفة وفق احتياجاتكم.">Bâtiments industriels, entrepôts et structures commerciales adaptés à vos besoins.</p>
+          <div class="srv-arrow">En savoir plus <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </div>
+        <div class="srv-card reveal" onclick="showPage('services')">
+          <div class="srv-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+          <h3 class="srv-h3" data-fr="Structures Préfabriquées" data-en="Prefabricated Structures" data-ar="الهياكل الجاهزة">Structures Préfabriquées</h3>
+          <p class="srv-desc" data-fr="Hangars métalliques modulaires et solutions préfabriquées clé en main." data-en="Modular metal hangars and turnkey prefabricated solutions." data-ar="أكواخ معدنية معيارية وحلول جاهزة متكاملة.">Hangars métalliques modulaires et solutions préfabriquées clé en main.</p>
+          <div class="srv-arrow">En savoir plus <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </div>
+        <div class="srv-card reveal" onclick="showPage('services')">
+          <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <h3 class="srv-h3" data-fr="Façades & Aménagement" data-en="Facades & Cladding" data-ar="الواجهات والتشطيب">Façades & Aménagement</h3>
+          <p class="srv-desc" data-fr="Bardage composite, murs-rideaux aluminium et finitions architecturales." data-en="Composite cladding, aluminum curtain walls and architectural finishes." data-ar="كسوة مركبة، جدران ستارية من الألومنيوم وتشطيبات معمارية.">Bardage composite, murs-rideaux aluminium et finitions architecturales.</p>
+          <div class="srv-arrow">En savoir plus <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </div>
+        <div class="srv-card reveal" onclick="showPage('services')">
+          <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+          <h3 class="srv-h3" data-fr="Menuiserie Métallique" data-en="Metal Carpentry" data-ar="النجارة المعدنية">Menuiserie Métallique</h3>
+          <p class="srv-desc" data-fr="Portes, fenêtres, portails et charpentes aluminium et acier sur mesure." data-en="Custom aluminum and steel doors, windows, gates and frameworks." data-ar="أبواب ونوافذ وبوابات وهياكل من الألومنيوم والفولاذ حسب الطلب.">Portes, fenêtres, portails et charpentes aluminium et acier sur mesure.</p>
+          <div class="srv-arrow">En savoir plus <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </div>
+        <div class="srv-card reveal" onclick="showPage('services')">
+          <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3 class="srv-h3" data-fr="Isolation & Étanchéité" data-en="Insulation & Waterproofing" data-ar="العزل والحماية من الماء">Isolation & Étanchéité</h3>
+          <p class="srv-desc" data-fr="Isolation thermique, acoustique et étanchéité des toitures et fondations." data-en="Thermal, acoustic insulation and waterproofing of roofs and foundations." data-ar="العزل الحراري والصوتي والحماية من الماء للأسطح والأساسات.">Isolation thermique, acoustique et étanchéité des toitures et fondations.</p>
+          <div class="srv-arrow">En savoir plus <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </div>
+        <div class="srv-card reveal" onclick="showPage('services')">
+          <div class="srv-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/><path d="M15.54 8.46a5 5 0 010 7.07M8.46 8.46a5 5 0 000 7.07"/></svg></div>
+          <h3 class="srv-h3" data-fr="Installations Techniques" data-en="Technical Installations" data-ar="التركيبات التقنية">Installations Techniques</h3>
+          <p class="srv-desc" data-fr="Plomberie, climatisation et électricité — lots techniques complets." data-en="Plumbing, HVAC and electrical — complete technical lots." data-ar="السباكة، التكييف والكهرباء — حزم تقنية متكاملة.">Plomberie, climatisation et électricité — lots techniques complets.</p>
+          <div class="srv-arrow">En savoir plus <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </div>
+        <div class="srv-card reveal" onclick="showPage('services')">
+          <div class="srv-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="6" height="6" rx="1"/><rect x="16" y="3" width="6" height="6" rx="1"/><rect x="9" y="15" width="6" height="6" rx="1"/><path d="M5 9v3a7 7 0 007 7M19 9v3a7 7 0 01-4 6.33"/></svg></div>
+          <h3 class="srv-h3" data-fr="Énergie Renouvelable" data-en="Renewable Energy" data-ar="الطاقة المتجددة">Énergie Renouvelable</h3>
+          <p class="srv-desc" data-fr="Installation solaire photovoltaïque et solutions d'efficacité énergétique." data-en="Photovoltaic solar installation and energy efficiency solutions." data-ar="تركيب الطاقة الشمسية الضوئية وحلول كفاءة الطاقة.">Installation solaire photovoltaïque et solutions d'efficacité énergétique.</p>
+          <div class="srv-arrow">En savoir plus <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </div>
+        <div class="srv-card reveal" onclick="showPage('services')">
+          <div class="srv-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+          <h3 class="srv-h3" data-fr="Ingénierie & Conseil" data-en="Engineering & Consulting" data-ar="الهندسة والاستشارات">Ingénierie & Conseil</h3>
+          <p class="srv-desc" data-fr="Études de faisabilité, conception BIM et maîtrise d'œuvre complète." data-en="Feasibility studies, BIM design and full project management." data-ar="دراسات الجدوى، تصميم BIM وإدارة المشاريع الكاملة.">Études de faisabilité, conception BIM et maîtrise d'œuvre complète.</p>
+          <div class="srv-arrow">En savoir plus <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SNIPPET -->
+  <section id="about-snip" aria-labelledby="about-snip-h2">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual">
+          <div class="about-img">
+            <div class="about-img-pattern" aria-hidden="true"></div>
+            <div class="about-img-icon">
+              <svg viewBox="0 0 80 80"><rect x="10" y="40" width="60" height="30" rx="2"/><polygon points="5,40 40,10 75,40"/><rect x="30" y="52" width="20" height="18"/><rect x="15" y="45" width="12" height="12"/><rect x="53" y="45" width="12" height="12"/></svg>
+              <p>Siège SOPREC – Chlef</p>
+            </div>
+            <div class="about-badge">
+              <strong>1983</strong>
+              <span data-fr="Fondée en" data-en="Founded" data-ar="تأسست عام">Fondée en</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="sec-eyebrow" data-fr="Qui sommes-nous" data-en="About us" data-ar="من نحن">Qui sommes-nous</div>
+          <h2 class="sec-h2" id="about-snip-h2" data-fr="40 Ans au Service de la Construction" data-en="40 Years of Construction Excellence" data-ar="40 عاماً في خدمة البناء">40 Ans au Service de la Construction</h2>
+          <p class="sec-lead" style="margin-bottom:24px" data-fr="Fondée en 1983 à Chlef, SOPREC est devenue l'une des premières entreprises algériennes spécialisées en construction préfabriquée. Nos équipes pluridisciplinaires maîtrisent toutes les étapes du projet." data-en="Founded in 1983 in Chlef, SOPREC has become one of Algeria's leading companies specializing in prefabricated construction. Our multidisciplinary teams master every stage of the project." data-ar="تأسست سوبريك عام 1983 في الشلف، وأصبحت واحدة من أولى الشركات الجزائرية المتخصصة في البناء الجاهز.">Fondée en 1983 à Chlef, SOPREC est devenue l'une des premières entreprises algériennes spécialisées en construction préfabriquée. Nos équipes pluridisciplinaires maîtrisent toutes les étapes du projet.</p>
+          <div class="about-checks">
+            <div class="about-check"><div class="about-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span data-fr="Bureau d'études interne — 30 ingénieurs et architectes" data-en="In-house design office — 30 engineers and architects" data-ar="مكتب دراسات داخلي — 30 مهندساً ومعمارياً">Bureau d'études interne — 30 ingénieurs et architectes</span></div>
+            <div class="about-check"><div class="about-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span data-fr="Atelier de fabrication certifié ISO 9001 à Chlef" data-en="ISO 9001 certified manufacturing workshop in Chlef" data-ar="ورشة تصنيع حاصلة على شهادة ISO 9001 في الشلف">Atelier de fabrication certifié ISO 9001 à Chlef</span></div>
+            <div class="about-check"><div class="about-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span data-fr="Couverture nationale — 48 wilayas algériennes" data-en="National coverage — 48 Algerian wilayas" data-ar="تغطية وطنية — 48 ولاية جزائرية">Couverture nationale — 48 wilayas algériennes</span></div>
+            <div class="about-check"><div class="about-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span data-fr="Livraison dans les délais et le budget convenus" data-en="Delivery on time and within the agreed budget" data-ar="تسليم في الوقت المحدد وضمن الميزانية المتفق عليها">Livraison dans les délais et le budget convenus</span></div>
+          </div>
+          <a href="#" class="btn-primary" onclick="showPage('about');return false;" data-fr="Découvrir notre histoire" data-en="Our Story" data-ar="اكتشف تاريخنا">
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            Découvrir notre histoire
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why" aria-labelledby="why-h2">
+    <div class="container">
+      <div class="sec-head center">
+        <div class="sec-eyebrow" data-fr="Pourquoi nous choisir" data-en="Why choose us" data-ar="لماذا سوبريك">Pourquoi nous choisir</div>
+        <h2 class="sec-h2" id="why-h2" data-fr="Votre Partenaire de Confiance" data-en="Your Trusted Partner" data-ar="شريككم الموثوق">Votre Partenaire de Confiance</h2>
+      </div>
+    </div>
+    <div class="container" style="padding:0 24px">
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-num">01</div>
+          <div class="why-icon-wrap"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke="var(--red)" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+          <h3 class="why-h3" data-fr="40+ Ans d'Expertise Prouvée" data-en="40+ Years Proven Expertise" data-ar="+40 سنة خبرة مثبتة">40+ Ans d'Expertise Prouvée</h3>
+          <p class="why-p" data-fr="Depuis 1983, plus de 850 projets industriels livrés à travers l'Algérie, des petits entrepôts aux complexes industriels de grande envergure." data-en="Since 1983, over 850 industrial projects delivered across Algeria, from small warehouses to large industrial complexes." data-ar="منذ 1983، أكثر من 850 مشروعاً صناعياً مسلَّماً عبر الجزائر.">Depuis 1983, plus de 850 projets industriels livrés à travers l'Algérie, des petits entrepôts aux complexes industriels de grande envergure.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-num">02</div>
+          <div class="why-icon-wrap"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke="var(--red)" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="14" y="14" width="8" height="8" rx="1"/><path d="M2 14h8v8H2z"/></svg></div>
+          <h3 class="why-h3" data-fr="Fabrication en Interne" data-en="In-house Manufacturing" data-ar="تصنيع داخلي">Fabrication en Interne</h3>
+          <p class="why-p" data-fr="Notre atelier à Chlef garantit un contrôle qualité rigoureux, des délais optimisés et des coûts maîtrisés pour chaque élément préfabriqué." data-en="Our workshop in Chlef ensures rigorous quality control, optimized deadlines and controlled costs for every prefabricated element." data-ar="ورشتنا في الشلف تضمن رقابة صارمة على الجودة وتكاليف محكومة لكل عنصر جاهز.">Notre atelier à Chlef garantit un contrôle qualité rigoureux, des délais optimisés et des coûts maîtrisés pour chaque élément préfabriqué.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-num">03</div>
+          <div class="why-icon-wrap"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke="var(--red)" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <h3 class="why-h3" data-fr="Solutions Clé en Main" data-en="Turnkey Solutions" data-ar="حلول متكاملة">Solutions Clé en Main</h3>
+          <p class="why-p" data-fr="De l'étude de faisabilité à la réception, nous gérons tous les corps d'état : génie civil, structure métallique, lots techniques et finitions." data-en="From feasibility study to handover, we manage all trades: civil engineering, metal structure, technical lots and finishes." data-ar="من دراسة الجدوى إلى التسليم، ندير جميع المراحل.">De l'étude de faisabilité à la réception, nous gérons tous les corps d'état : génie civil, structure métallique, lots techniques et finitions.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-num">04</div>
+          <div class="why-icon-wrap"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke="var(--red)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <h3 class="why-h3" data-fr="Couverture Nationale" data-en="National Coverage" data-ar="تغطية وطنية">Couverture Nationale</h3>
+          <p class="why-p" data-fr="Présents dans les 48 wilayas algériennes avec des équipes de chantier expérimentées déployées sur l'ensemble du territoire." data-en="Present in all 48 Algerian wilayas with experienced site teams deployed across the entire territory." data-ar="نشطون في جميع الولايات الـ48 الجزائرية مع فرق ميدان متمرسة.">Présents dans les 48 wilayas algériennes avec des équipes de chantier expérimentées déployées sur l'ensemble du territoire.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-num">05</div>
+          <div class="why-icon-wrap"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke="var(--red)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3 class="why-h3" data-fr="Qualité Certifiée ISO" data-en="ISO Certified Quality" data-ar="جودة معتمدة ISO">Qualité Certifiée ISO</h3>
+          <p class="why-p" data-fr="Certifiée ISO 9001:2015, SOPREC applique des processus rigoureux à chaque étape, de la fabrication jusqu'au montage final." data-en="ISO 9001:2015 certified, SOPREC applies rigorous processes at every stage, from manufacturing to final assembly." data-ar="حاصلة على شهادة ISO 9001:2015، سوبريك تطبق عمليات صارمة في كل مرحلة.">Certifiée ISO 9001:2015, SOPREC applique des processus rigoureux à chaque étape, de la fabrication jusqu'au montage final.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-num">06</div>
+          <div class="why-icon-wrap"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke="var(--red)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <h3 class="why-h3" data-fr="SAV & Partenariat Long Terme" data-en="After-sales & Long-term Partnership" data-ar="دعم ما بعد البيع وشراكة دائمة">SAV & Partenariat Long Terme</h3>
+          <p class="why-p" data-fr="Au-delà de la livraison, nous assurons un suivi post-chantier complet : maintenance, assistance technique et garantie décennale." data-en="Beyond delivery, we provide complete post-construction follow-up: maintenance, technical assistance and 10-year warranty." data-ar="ما بعد التسليم: نوفر متابعة كاملة، صيانة ودعماً تقنياً وضماناً عشرياً.">Au-delà de la livraison, nous assurons un suivi post-chantier complet : maintenance, assistance technique et garantie décennale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS PREVIEW -->
+  <section id="proj-prev" aria-labelledby="proj-prev-h2">
+    <div class="container">
+      <div class="sec-head between">
+        <div>
+          <div class="sec-eyebrow" data-fr="Nos réalisations" data-en="Our projects" data-ar="منجزاتنا">Nos réalisations</div>
+          <h2 class="sec-h2" id="proj-prev-h2" data-fr="Projets Marquants" data-en="Featured Projects" data-ar="المشاريع البارزة">Projets Marquants</h2>
+        </div>
+        <a href="#" class="btn-outline" onclick="showPage('projects');return false;" data-fr="Voir tous les projets" data-en="All Projects" data-ar="جميع المشاريع">
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          Voir tous les projets
+        </a>
+      </div>
+    </div>
+    <div class="container" style="padding:0 24px">
+      <div class="proj-grid">
+        <div class="proj-card tall reveal">
+          <div class="proj-img">
+            <div class="proj-img-inner">
+              <svg viewBox="0 0 80 80" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="35" width="70" height="38" rx="1"/><polygon points="3,35 40,8 77,35"/><rect x="25" y="52" width="30" height="21"/><rect x="10" y="40" width="16" height="14"/><rect x="54" y="40" width="16" height="14"/><line x1="40" y1="8" x2="40" y2="2"/><line x1="36" y1="2" x2="44" y2="2"/></svg>
+            </div>
+            <div class="proj-overlay">
+              <div class="proj-type" data-fr="Complexe industriel" data-en="Industrial complex" data-ar="مجمع صناعي">Complexe industriel</div>
+              <div class="proj-title" data-fr="Complexe Logistique Sonatrach – Hassi Messaoud" data-en="Sonatrach Logistics Complex – Hassi Messaoud" data-ar="مجمع لوجستي سوناطراك – حاسي مسعود">Complexe Logistique Sonatrach – Hassi Messaoud</div>
+              <div class="proj-desc" data-fr="12 000 m² · Charpente métallique & bardage" data-en="12,000 m² · Metal frame & cladding" data-ar="12,000 م² · هيكل معدني وكسوة">12 000 m² · Charpente métallique & bardage</div>
+            </div>
+          </div>
+        </div>
+        <div class="proj-card reveal">
+          <div class="proj-img">
+            <div class="proj-img-inner">
+              <svg viewBox="0 0 80 80" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="20" width="60" height="53" rx="1"/><rect x="20" y="30" width="16" height="12"/><rect x="44" y="30" width="16" height="12"/><rect x="30" y="52" width="20" height="21"/><line x1="10" y1="20" x2="40" y2="8"/><line x1="70" y1="20" x2="40" y2="8"/></svg>
+            </div>
+            <div class="proj-overlay">
+              <div class="proj-type">Bâtiment administratif</div>
+              <div class="proj-title">Siège CNAS – Chlef</div>
+              <div class="proj-desc">Façade ACM · Menuiserie aluminium</div>
+            </div>
+          </div>
+        </div>
+        <div class="proj-card reveal">
+          <div class="proj-img">
+            <div class="proj-img-inner">
+              <svg viewBox="0 0 80 80" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="30" width="70" height="43" rx="1"/><line x1="5" y1="30" x2="40" y2="14"/><line x1="75" y1="30" x2="40" y2="14"/><line x1="5" y1="38" x2="75" y2="38"/><rect x="12" y="45" width="56" height="28"/><line x1="12" y1="52" x2="68" y2="52"/><line x1="12" y1="59" x2="68" y2="59"/></svg>
+            </div>
+            <div class="proj-overlay">
+              <div class="proj-type">Hangar métallique</div>
+              <div class="proj-title">Hangar industriel ENAC – Béjaïa</div>
+              <div class="proj-desc">3 500 m² · Pont roulant 10t</div>
+            </div>
+          </div>
+        </div>
+        <div class="proj-card reveal">
+          <div class="proj-img">
+            <div class="proj-img-inner">
+              <svg viewBox="0 0 80 80" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="28" width="70" height="45" rx="1"/><polygon points="3,28 40,10 77,28"/><rect x="14" y="42" width="18" height="10"/><rect x="48" y="42" width="18" height="10"/><rect x="28" y="55" width="24" height="18"/><line x1="40" y1="10" x2="40" y2="5"/></svg>
+            </div>
+            <div class="proj-overlay">
+              <div class="proj-type">Établissement scolaire</div>
+              <div class="proj-title">École préfabriquée – Ain Defla</div>
+              <div class="proj-desc">24 classes · Livré en 8 semaines</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" aria-labelledby="testi-h2">
+    <div class="container">
+      <div class="sec-head center">
+        <div class="sec-eyebrow" data-fr="Témoignages" data-en="Testimonials" data-ar="شهادات العملاء">Témoignages</div>
+        <h2 class="sec-h2" id="testi-h2" data-fr="Ce que disent nos clients" data-en="What Our Clients Say" data-ar="ما يقوله عملاؤنا">Ce que disent nos clients</h2>
+      </div>
+    </div>
+    <div class="container" style="padding:0 24px">
+      <div class="testi-grid">
+        <div class="testi-card reveal">
+          <div class="testi-quote"><svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg></div>
+          <div class="testi-stars">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testi-text" data-fr="SOPREC a livré notre entrepôt de 4 000 m² avant le délai prévu. La qualité d'exécution et le professionnalisme des équipes étaient exemplaires tout au long du projet." data-en="SOPREC delivered our 4,000 m² warehouse ahead of schedule. The quality of work and professionalism of the teams were exemplary throughout the project." data-ar="سلّمت سوبريك مستودعنا البالغة مساحته 4000 م² قبل الموعد. كانت جودة التنفيذ ومهنية الفرق نموذجية.">SOPREC a livré notre entrepôt de 4 000 m² avant le délai prévu. La qualité d'exécution et le professionnalisme des équipes étaient exemplaires tout au long du projet.</p>
+          <div class="testi-author"><div class="testi-av">MK</div><div><div class="testi-name">M. Karim Benali</div><div class="testi-role">Directeur, SARL TechBuild – Oran</div></div></div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-quote"><svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg></div>
+          <div class="testi-stars">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testi-text" data-fr="Nous avons collaboré avec SOPREC sur trois projets industriels. Leur approche — de la conception à la livraison — est toujours rigoureuse, transparente et orientée résultats." data-en="We worked with SOPREC on three industrial projects. Their approach — from design to delivery — is always rigorous, transparent and results-driven." data-ar="تعاملنا مع سوبريك في ثلاثة مشاريع. نهجهم دائماً دقيق وشفاف وموجه نحو النتائج.">Nous avons collaboré avec SOPREC sur trois projets industriels. Leur approche — de la conception à la livraison — est toujours rigoureuse, transparente et orientée résultats.</p>
+          <div class="testi-author"><div class="testi-av">SA</div><div><div class="testi-name">Mme Souad Amrani</div><div class="testi-role">PDG, Groupe Amrani Industries – Alger</div></div></div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-quote"><svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg></div>
+          <div class="testi-stars">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testi-text" data-fr="Le complexe préfabriqué réalisé par SOPREC combine parfaitement fonctionnalité, rapidité et maîtrise des coûts. Je recommande vivement leurs services à toute entreprise industrielle." data-en="The prefabricated complex built by SOPREC perfectly combines functionality, speed and cost control. I strongly recommend their services to any industrial company." data-ar="المجمع الجاهز الذي أنجزته سوبريك يجمع وظيفية وسرعة وتحكماً في التكاليف. أوصي بشدة بخدماتهم.">Le complexe préfabriqué réalisé par SOPREC combine parfaitement fonctionnalité, rapidité et maîtrise des coûts. Je recommande vivement leurs services à toute entreprise industrielle.</p>
+          <div class="testi-author"><div class="testi-av">HO</div><div><div class="testi-name">M. Hocine Ouali</div><div class="testi-role">Gérant, EURL Ouali Logistique – Sétif</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section id="cta-band" aria-labelledby="cta-h2">
+    <div class="cta-texture" aria-hidden="true"></div>
+    <div class="cta-red-line" aria-hidden="true"></div>
+    <div class="container">
+      <div class="cta-inner">
+        <div class="sec-eyebrow" style="justify-content:center;color:rgba(255,255,255,0.5)" data-fr="Démarrez votre projet" data-en="Start your project" data-ar="ابدأ مشروعك">Démarrez votre projet</div>
+        <h2 class="cta-h2" id="cta-h2" data-fr="Construisons ensemble votre projet industriel" data-en="Let's build your industrial project together" data-ar="لنبن مشروعكم الصناعي معاً">Construisons ensemble<br>votre projet industriel</h2>
+        <p class="cta-p" data-fr="Demandez un devis gratuit et sans engagement. Notre équipe répond sous 48 heures ouvrables." data-en="Request a free, no-obligation quote. Our team responds within 48 business hours." data-ar="اطلب عرض سعر مجاني. فريقنا يرد خلال 48 ساعة.">Demandez un devis gratuit et sans engagement. Notre équipe répond sous 48 heures ouvrables.</p>
+        <div class="cta-btns">
+          <a href="#" class="btn-primary" onclick="showPage('contact');return false;" data-fr="Demander un devis gratuit" data-en="Get a Free Quote" data-ar="طلب عرض مجاني">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Demander un devis gratuit
+          </a>
+          <a href="tel:+21327700000" class="btn-outline-white">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.59 8a19.79 19.79 0 01-3.07-8.67A2 2 0 012.44 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.29 6.29l1.27-.69a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            +213 27 700 000
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /home -->
+
+<!-- ═══════════════ ABOUT PAGE ═══════════════ -->
+<div id="page-about" class="page">
+  <div class="page-hero">
+    <div class="page-hero-texture" aria-hidden="true"></div>
+    <div class="page-hero-bar" aria-hidden="true"></div>
+    <div class="container page-hero-inner">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <a href="#" onclick="showPage('home');return false;" data-fr="Accueil" data-en="Home" data-ar="الرئيسية">Accueil</a>
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        <span data-fr="Qui sommes-nous" data-en="About" data-ar="من نحن">Qui sommes-nous</span>
+      </nav>
+      <div class="sec-eyebrow" style="color:rgba(255,255,255,0.4)">Notre histoire</div>
+      <h1 class="page-h1" data-fr="Bâtir l'Algérie<br>depuis 1983" data-en="Building Algeria<br>since 1983" data-ar="نبني الجزائر<br>منذ 1983">Bâtir l'Algérie<br>depuis 1983</h1>
+    </div>
+  </div>
+
+  <section style="background:var(--bg)">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px" class="responsive-2col">
+        <!-- Timeline -->
+        <div>
+          <div class="sec-eyebrow">Notre parcours</div>
+          <h2 class="sec-h2">Une histoire de 40 ans</h2>
+          <p class="sec-lead" style="margin-bottom:36px">De l'artisan local au leader national de la construction préfabriquée.</p>
+          <div class="timeline">
+            <div class="tl-item reveal"><div class="tl-year">1983</div><div class="tl-text" data-fr="Fondation de SOPREC à Chlef par M. Benyounes Hamidouche. Démarrage avec des petites structures préfabriquées pour le secteur public." data-en="SOPREC founded in Chlef by Mr. Benyounes Hamidouche. Start with small prefabricated structures for the public sector." data-ar="تأسيس سوبريك في الشلف. البداية بهياكل جاهزة صغيرة للقطاع العام.">Fondation de SOPREC à Chlef par M. Benyounes Hamidouche. Démarrage avec des petites structures préfabriquées pour le secteur public.</div></div>
+            <div class="tl-item reveal"><div class="tl-year">1995</div><div class="tl-text">Extension des activités au secteur privé. Ouverture de l'atelier de construction métallique dans la zone industrielle de Chlef.</div></div>
+            <div class="tl-item reveal"><div class="tl-year">2005</div><div class="tl-text">Obtention de la certification ISO 9001. SOPREC devient un acteur majeur en construction industrielle, présent dans plus de 20 wilayas.</div></div>
+            <div class="tl-item reveal"><div class="tl-year">2015</div><div class="tl-text">Diversification dans l'énergie renouvelable et les lots techniques. Lancement du département installation solaire photovoltaïque.</div></div>
+            <div class="tl-item reveal"><div class="tl-year">2024</div><div class="tl-text">Plus de 850 projets livrés à travers l'Algérie. SOPREC continue d'innover pour répondre aux défis industriels de demain.</div></div>
+          </div>
+        </div>
+        <!-- Values -->
+        <div>
+          <div class="sec-eyebrow">Nos valeurs</div>
+          <h2 class="sec-h2">Ce qui nous anime</h2>
+          <p class="sec-lead" style="margin-bottom:32px">Quatre principes fondamentaux guident chacune de nos actions.</p>
+          <div class="values-grid">
+            <div class="val-card reveal">
+              <div class="val-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div><div class="val-h4" data-fr="Excellence" data-en="Excellence" data-ar="التميز">Excellence</div><p class="val-p" data-fr="Standards les plus élevés dans chaque projet et chaque détail." data-en="Highest standards in every project and every detail." data-ar="أعلى المعايير في كل مشروع وكل تفصيل.">Standards les plus élevés dans chaque projet et chaque détail.</p></div>
+            </div>
+            <div class="val-card reveal">
+              <div class="val-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+              <div><div class="val-h4" data-fr="Intégrité" data-en="Integrity" data-ar="النزاهة">Intégrité</div><p class="val-p" data-fr="Transparence et honnêteté dans toutes nos relations commerciales." data-en="Transparency and honesty in all our commercial relationships." data-ar="الشفافية والأمانة في جميع علاقاتنا التجارية.">Transparence et honnêteté dans toutes nos relations commerciales.</p></div>
+            </div>
+            <div class="val-card reveal">
+              <div class="val-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+              <div><div class="val-h4" data-fr="Innovation" data-en="Innovation" data-ar="الابتكار">Innovation</div><p class="val-p" data-fr="Investissement continu dans les nouvelles technologies de construction." data-en="Continuous investment in new construction technologies." data-ar="استثمار مستمر في تقنيات البناء الجديدة.">Investissement continu dans les nouvelles technologies de construction.</p></div>
+            </div>
+            <div class="val-card reveal">
+              <div class="val-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+              <div><div class="val-h4" data-fr="Esprit d'équipe" data-en="Team spirit" data-ar="روح الفريق">Esprit d'équipe</div><p class="val-p" data-fr="200+ collaborateurs formés et engagés dans la réussite de vos projets." data-en="200+ trained staff committed to the success of your projects." data-ar="أكثر من 200 موظف ملتزم بنجاح مشاريعكم.">200+ collaborateurs formés et engagés dans la réussite de vos projets.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key numbers -->
+  <section style="background:var(--bg-off)">
+    <div class="container">
+      <div class="sec-head center">
+        <div class="sec-eyebrow">Chiffres clés</div>
+        <h2 class="sec-h2">SOPREC en chiffres</h2>
+      </div>
+      <div class="keynums">
+        <div class="keynum reveal"><div class="keynum-n">200<sup style="font-size:1.2rem">+</sup></div><div class="keynum-l">Employés</div></div>
+        <div class="keynum reveal"><div class="keynum-n">850<sup style="font-size:1.2rem">+</sup></div><div class="keynum-l">Projets réalisés</div></div>
+        <div class="keynum reveal"><div class="keynum-n">40</div><div class="keynum-l">Ans d'existence</div></div>
+        <div class="keynum reveal"><div class="keynum-n">48</div><div class="keynum-l">Wilayas couvertes</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section style="background:var(--bg)">
+    <div class="container">
+      <div class="sec-head center">
+        <div class="sec-eyebrow">Leadership</div>
+        <h2 class="sec-h2">L'Équipe Dirigeante</h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <div class="team-av">BH</div>
+          <div class="team-name">M. Benyounes Hamidouche</div>
+          <div class="team-role">Président Directeur Général</div>
+          <p class="team-bio">Fondateur de SOPREC en 1983. Ingénieur civil avec 40+ ans d'expérience en construction industrielle en Algérie. Visionnaire et bâtisseur du groupe.</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-av">KH</div>
+          <div class="team-name">Mme. Karima Hamidouche</div>
+          <div class="team-role">Directrice Générale</div>
+          <p class="team-bio">Master en gestion de projets. Supervise l'ensemble des opérations, le développement commercial et les partenariats stratégiques nationaux.</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-av">MB</div>
+          <div class="team-name">M. Mohamed Bouchaoui</div>
+          <div class="team-role">Directeur Technique</div>
+          <p class="team-bio">Ingénieur génie civil et structures. Pilote le bureau d'études avec une équipe de 30 architectes et ingénieurs spécialisés.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cta-band">
+    <div class="cta-texture" aria-hidden="true"></div>
+    <div class="cta-red-line" aria-hidden="true"></div>
+    <div class="container"><div class="cta-inner">
+      <h2 class="cta-h2">Prêt à travailler avec nous ?</h2>
+      <p class="cta-p">Contactez notre équipe pour discuter de votre projet industriel.</p>
+      <div class="cta-btns">
+        <a href="#" class="btn-primary" onclick="showPage('contact');return false;"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Nous contacter</a>
+        <a href="#" class="btn-outline-white" onclick="showPage('services');return false;"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg> Nos services</a>
+      </div>
+    </div></div>
+  </section>
+</div><!-- /about -->
+
+<!-- ═══════════════ SERVICES PAGE ═══════════════ -->
+<div id="page-services" class="page">
+  <div class="page-hero">
+    <div class="page-hero-texture" aria-hidden="true"></div>
+    <div class="page-hero-bar" aria-hidden="true"></div>
+    <div class="container page-hero-inner">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <a href="#" onclick="showPage('home');return false;">Accueil</a>
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>Services</span>
+      </nav>
+      <div class="sec-eyebrow" style="color:rgba(255,255,255,0.4)">Expertise complète</div>
+      <h1 class="page-h1">Nos Services<br>Complets</h1>
+    </div>
+  </div>
+
+  <section style="background:var(--bg)">
+    <div class="container">
+      <div class="sec-head center">
+        <div class="sec-eyebrow">8 domaines d'expertise</div>
+        <h2 class="sec-h2">De la conception à la livraison</h2>
+        <p class="sec-lead">Chaque catégorie de service est assurée par des équipes spécialisées avec un suivi qualité rigoureux.</p>
+      </div>
+      <div class="srv-cats" id="srvAccordion">
+
+        <div class="service-cat">
+          <div class="srv-cat-head" onclick="toggleCat(this)">
+            <div class="srv-cat-n">01</div>
+            <div class="srv-cat-ico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <div class="srv-cat-label">Construction & Bâtiments</div>
+            <div class="srv-cat-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="srv-cat-body">
+            <div class="srv-cat-desc">Réalisation complète de bâtiments industriels et commerciaux, des fondations jusqu'au gros œuvre, adaptés à l'activité et aux normes algériennes en vigueur.</div>
+            <div class="srv-sub-grid">
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Bâtiments industriels</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Entrepôts & stockage</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Bâtiments commerciaux</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Bâtiments administratifs</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Complexes sportifs</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Établissements scolaires</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-cat">
+          <div class="srv-cat-head" onclick="toggleCat(this)">
+            <div class="srv-cat-n">02</div>
+            <div class="srv-cat-ico"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+            <div class="srv-cat-label">Structures Préfabriquées</div>
+            <div class="srv-cat-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="srv-cat-body">
+            <div class="srv-cat-desc">Construction modulaire et rapide grâce à des éléments préfabriqués métalliques ou en béton fabriqués dans notre atelier certifié à Chlef.</div>
+            <div class="srv-sub-grid">
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Hangars métalliques</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Panneaux sandwich</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Charpentes métalliques</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Modules préfabriqués</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Structures agricoles</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Abris & bureaux chantier</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-cat">
+          <div class="srv-cat-head" onclick="toggleCat(this)">
+            <div class="srv-cat-n">03</div>
+            <div class="srv-cat-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+            <div class="srv-cat-label">Façades & Aménagement</div>
+            <div class="srv-cat-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="srv-cat-body">
+            <div class="srv-cat-desc">Conception et pose de tous types de façades extérieures, panneaux composites et systèmes de murs-rideaux architecturaux haute performance.</div>
+            <div class="srv-sub-grid">
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Bardage métallique</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Panneaux composites ACM</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Murs-rideaux aluminium</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Faux plafonds</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Revêtements de sol</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Aménagements intérieurs</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-cat">
+          <div class="srv-cat-head" onclick="toggleCat(this)">
+            <div class="srv-cat-n">04</div>
+            <div class="srv-cat-ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+            <div class="srv-cat-label">Menuiserie Métallique</div>
+            <div class="srv-cat-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="srv-cat-body">
+            <div class="srv-cat-desc">Fabrication et installation de toutes menuiseries aluminium et acier — portes, fenêtres, portails et structures architecturales sur mesure.</div>
+            <div class="srv-sub-grid">
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Portes industrielles</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Fenêtres aluminium</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Portails & clôtures</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Garde-corps & rampes</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Verrières & pergolas</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Structures inox</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-cat">
+          <div class="srv-cat-head" onclick="toggleCat(this)">
+            <div class="srv-cat-n">05</div>
+            <div class="srv-cat-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="srv-cat-label">Isolation & Étanchéité</div>
+            <div class="srv-cat-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="srv-cat-body">
+            <div class="srv-cat-desc">Solutions complètes d'isolation thermique, acoustique et d'étanchéité pour toitures, murs et planchers avec les matériaux les plus performants du marché.</div>
+            <div class="srv-sub-grid">
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Étanchéité toitures</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Isolation thermique</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Isolation acoustique</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Étanchéité fondations</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Membrane bitumineuse</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Résines époxy sol</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-cat">
+          <div class="srv-cat-head" onclick="toggleCat(this)">
+            <div class="srv-cat-n">06</div>
+            <div class="srv-cat-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/><path d="M15.54 8.46a5 5 0 010 7.07M8.46 8.46a5 5 0 000 7.07"/></svg></div>
+            <div class="srv-cat-label">Installations Techniques (CVC, Plomberie, Électricité)</div>
+            <div class="srv-cat-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="srv-cat-body">
+            <div class="srv-cat-desc">Réalisation de tous les lots techniques pour bâtiments industriels et commerciaux : CVC, plomberie sanitaire, électricité courants forts et faibles.</div>
+            <div class="srv-sub-grid">
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Plomberie sanitaire</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Climatisation & ventilation</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Électricité courants forts</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Courants faibles & réseau</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Sprinklers & incendie</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Domotique & automatismes</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-cat">
+          <div class="srv-cat-head" onclick="toggleCat(this)">
+            <div class="srv-cat-n">07</div>
+            <div class="srv-cat-ico"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="9" y="15" width="6" height="6" rx="1"/><path d="M5 9v3a7 7 0 007 7M19 9v3a7 7 0 01-4 6.33"/></svg></div>
+            <div class="srv-cat-label">Énergie Renouvelable</div>
+            <div class="srv-cat-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="srv-cat-body">
+            <div class="srv-cat-desc">Conception et installation de systèmes solaires photovoltaïques, stockage d'énergie et audit énergétique complet pour vos bâtiments industriels.</div>
+            <div class="srv-sub-grid">
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Panneaux solaires PV</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Onduleurs & stockage</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Bilan énergétique</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Toiture solaire intégrée</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Éclairage LED</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Audit énergétique</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-cat">
+          <div class="srv-cat-head" onclick="toggleCat(this)">
+            <div class="srv-cat-n">08</div>
+            <div class="srv-cat-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+            <div class="srv-cat-label">Ingénierie & Conseil</div>
+            <div class="srv-cat-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="srv-cat-body">
+            <div class="srv-cat-desc">Notre bureau d'études vous accompagne de l'étude de faisabilité à la direction de chantier, en passant par la conception architecturale et la modélisation BIM.</div>
+            <div class="srv-sub-grid">
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Études de faisabilité</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Conception architecturale</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Ingénierie structurelle</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Modélisation BIM 3D</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Maîtrise d'œuvre</div>
+              <div class="srv-sub"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Contrôle qualité</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <section id="cta-band">
+    <div class="cta-texture" aria-hidden="true"></div>
+    <div class="cta-red-line" aria-hidden="true"></div>
+    <div class="container"><div class="cta-inner">
+      <h2 class="cta-h2">Besoin d'un service spécifique ?</h2>
+      <p class="cta-p">Demandez un devis personnalisé adapté à votre projet industriel.</p>
+      <div class="cta-btns"><a href="#" class="btn-primary" onclick="showPage('contact');return false;"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Demander un devis</a></div>
+    </div></div>
+  </section>
+</div><!-- /services -->
+
+<!-- ═══════════════ PROJECTS PAGE ═══════════════ -->
+<div id="page-projects" class="page">
+  <div class="page-hero">
+    <div class="page-hero-texture" aria-hidden="true"></div>
+    <div class="page-hero-bar" aria-hidden="true"></div>
+    <div class="container page-hero-inner">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <a href="#" onclick="showPage('home');return false;">Accueil</a>
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>Réalisations</span>
+      </nav>
+      <div class="sec-eyebrow" style="color:rgba(255,255,255,0.4)">Portfolio</div>
+      <h1 class="page-h1">Nos Réalisations</h1>
+    </div>
+  </div>
+
+  <section style="background:var(--bg)">
+    <div class="container">
+      <div class="filter-bar" id="filterBar" role="group" aria-label="Filtrer par catégorie">
+        <button class="flt-btn active" data-f="all">Tous les projets</button>
+        <button class="flt-btn" data-f="industrial">Industriel</button>
+        <button class="flt-btn" data-f="hangar">Hangars</button>
+        <button class="flt-btn" data-f="admin">Administratif</button>
+        <button class="flt-btn" data-f="energy">Énergie</button>
+        <button class="flt-btn" data-f="social">Social</button>
+      </div>
+      <div class="proj-full-grid" id="projGrid">
+
+        <div class="proj-full-card reveal" data-cat="industrial">
+          <div class="proj-img-inner"><svg viewBox="0 0 80 80" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="35" width="70" height="38"/><polygon points="3,35 40,8 77,35"/><rect x="10" y="40" width="16" height="14"/><rect x="54" y="40" width="16" height="14"/><rect x="25" y="52" width="30" height="21"/></svg></div>
+          <div class="proj-overlay">
+            <div class="proj-type">Complexe industriel · 2023</div>
+            <div class="proj-title">Complexe Logistique Sonatrach – Hassi Messaoud</div>
+            <div class="proj-desc">12 000 m² de hangars et bâtiments de stockage. Charpente métallique, bardage composite.</div>
+          </div>
+        </div>
+
+        <div class="proj-full-card reveal" data-cat="admin">
+          <div class="proj-img-inner"><svg viewBox="0 0 80 80" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="20" width="60" height="53"/><rect x="20" y="30" width="16" height="12"/><rect x="44" y="30" width="16" height="12"/><rect x="30" y="52" width="20" height="21"/><line x1="10" y1="20" x2="40" y2="8"/><line x1="70" y1="20" x2="40" y2="8"/></svg></div>
+          <div class="proj-overlay">
+            <div class="proj-type">Bâtiment administratif · 2022</div>
+            <div class="proj-title">Siège CNAS – Chlef</div>
+            <div class="proj-desc">Bâtiment R+4 avec façade ACM et menuiserie aluminium thermique.</div>
+          </div>
+        </div>
+
+        <div class="proj-full-card reveal" data-cat="hangar">
+          <div class="proj-img-inner"><svg viewBox="0 0 80 80" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="30" width="70" height="43"/><line x1="5" y1="30" x2="40" y2="14"/><line x1="75" y1="30" x2="40" y2="14"/><line x1="5" y1="38" x2="75" y2="38"/><line x1="5" y1="46" x2="75" y2="46"/></svg></div>
+          <div class="proj-overlay">
+            <div class="proj-type">Hangar métallique · 2022</div>
+            <div class="proj-title">Hangar industriel ENAC – Béjaïa</div>
+            <div class="proj-desc">3 500 m² avec pont roulant 10 tonnes. Structure métallique préfabriquée.</div>
+          </div>
+        </div>
+
+        <div class="proj-full-card reveal" data-cat="social">
+          <div class="proj-img-inner"><svg viewBox="0 0 80 80" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="28" width="70" height="45"/><polygon points="3,28 40,10 77,28"/><rect x="14" y="42" width="18" height="10"/><rect x="48" y="42" width="18" height="10"/><rect x="28" y="55" width="24" height="18"/></svg></div>
+          <div class="proj-overlay">
+            <div class="proj-type">Établissement scolaire · 2021</div>
+            <div class="proj-title">École préfabriquée – Ain Defla</div>
+            <div class="proj-desc">24 classes préfabriquées livrées en 8 semaines. Panneaux sandwich haute isolation.</div>
+          </div>
+        </div>
+
+        <div class="proj-full-card reveal" data-cat="energy">
+          <div class="proj-img-inner"><svg viewBox="0 0 80 80" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="25" width="60" height="35"/><line x1="10" y1="35" x2="70" y2="35"/><line x1="10" y1="45" x2="70" y2="45"/><line x1="28" y1="25" x2="28" y2="60"/><line x1="46" y1="25" x2="46" y2="60"/><line x1="40" y1="60" x2="40" y2="70"/><line x1="30" y1="70" x2="50" y2="70"/></svg></div>
+          <div class="proj-overlay">
+            <div class="proj-type">Énergie renouvelable · 2023</div>
+            <div class="proj-title">Centrale solaire agricole – Mostaganem</div>
+            <div class="proj-desc">500 kW de panneaux photovoltaïques sur toiture de serres industrielles.</div>
+          </div>
+        </div>
+
+        <div class="proj-full-card reveal" data-cat="industrial">
+          <div class="proj-img-inner"><svg viewBox="0 0 80 80" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="25" width="64" height="48"/><rect x="18" y="35" width="18" height="16"/><rect x="44" y="35" width="18" height="16"/><rect x="30" y="55" width="20" height="18"/><line x1="8" y1="25" x2="40" y2="10"/><line x1="72" y1="25" x2="40" y2="10"/></svg></div>
+          <div class="proj-overlay">
+            <div class="proj-type">Unité pharmaceutique · 2021</div>
+            <div class="proj-title">Usine SAIDAL – Blida</div>
+            <div class="proj-desc">6 800 m² clé en main, normes GMP pharma, salle blanche intégrée.</div>
+          </div>
+        </div>
+
+        <div class="proj-full-card reveal" data-cat="hangar">
+          <div class="proj-img-inner"><svg viewBox="0 0 80 80" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="32" width="72" height="40"/><line x1="4" y1="32" x2="40" y2="16"/><line x1="76" y1="32" x2="40" y2="16"/><rect x="10" y="42" width="22" height="30"/><rect x="48" y="42" width="22" height="30"/><line x1="4" y1="50" x2="76" y2="50"/></svg></div>
+          <div class="proj-overlay">
+            <div class="proj-type">Dépôt logistique · 2020</div>
+            <div class="proj-title">Centre de Distribution CEVITAL – Béjaïa</div>
+            <div class="proj-desc">Entrepôt logistique 8 000 m² avec quais de chargement et bureaux intégrés.</div>
+          </div>
+        </div>
+
+        <div class="proj-full-card reveal" data-cat="social">
+          <div class="proj-img-inner"><svg viewBox="0 0 80 80" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="22" width="60" height="51"/><rect x="20" y="32" width="14" height="12"/><rect x="46" y="32" width="14" height="12"/><rect x="30" y="54" width="20" height="19"/><line x1="10" y1="22" x2="40" y2="8"/><line x1="70" y1="22" x2="40" y2="8"/><rect x="34" y="44" width="12" height="10"/></svg></div>
+          <div class="proj-overlay">
+            <div class="proj-type">Santé · 2022</div>
+            <div class="proj-title">Polyclinique préfabriquée – Tissemsilt</div>
+            <div class="proj-desc">12 salles de consultation modulaires livrées en 12 semaines.</div>
+          </div>
+        </div>
+
+        <div class="proj-full-card reveal" data-cat="industrial">
+          <div class="proj-img-inner"><svg viewBox="0 0 80 80" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="28" width="68" height="44"/><line x1="6" y1="28" x2="40" y2="12"/><line x1="74" y1="28" x2="40" y2="12"/><circle cx="25" cy="48" r="8"/><circle cx="55" cy="48" r="8"/><rect x="34" y="56" width="12" height="16"/></svg></div>
+          <div class="proj-overlay">
+            <div class="proj-type">Atelier industriel · 2023</div>
+            <div class="proj-title">Atelier de maintenance SNVI – Rouiba</div>
+            <div class="proj-desc">4 200 m² avec ponts roulants et fosses de visite intégrées.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div><!-- /projects -->
+
+<!-- ═══════════════ CONTACT PAGE ═══════════════ -->
+<div id="page-contact" class="page">
+  <div class="page-hero">
+    <div class="page-hero-texture" aria-hidden="true"></div>
+    <div class="page-hero-bar" aria-hidden="true"></div>
+    <div class="container page-hero-inner">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <a href="#" onclick="showPage('home');return false;">Accueil</a>
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>Contact</span>
+      </nav>
+      <div class="sec-eyebrow" style="color:rgba(255,255,255,0.4)">Travaillons ensemble</div>
+      <h1 class="page-h1">Contactez-Nous</h1>
+    </div>
+  </div>
+
+  <section id="contact-page-body">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Form -->
+        <div class="contact-form-wrap">
+          <div class="form-title" data-fr="Demande de Devis" data-en="Request a Quote" data-ar="طلب عرض سعر">Demande de Devis</div>
+          <p class="form-sub" data-fr="Remplissez le formulaire, notre équipe répond sous 48 heures." data-en="Fill in the form, our team responds within 48 hours." data-ar="أكمل النموذج، سيرد فريقنا خلال 48 ساعة.">Remplissez le formulaire, notre équipe répond sous 48 heures.</p>
+          <div id="formWrap">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="fname">Nom complet *</label>
+                <input class="form-input" type="text" id="fname" placeholder="M. Ahmed Benali" autocomplete="name" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="fcompany">Entreprise</label>
+                <input class="form-input" type="text" id="fcompany" placeholder="SARL Exemple" autocomplete="organization">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="femail">Email *</label>
+                <input class="form-input" type="email" id="femail" placeholder="contact@exemple.dz" autocomplete="email" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="fphone">Téléphone</label>
+                <input class="form-input" type="tel" id="fphone" placeholder="+213 5x xxx xxxx" autocomplete="tel">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fservice">Service concerné</label>
+              <select class="form-select" id="fservice">
+                <option value="">— Sélectionner un service —</option>
+                <option>Construction & Bâtiments</option>
+                <option>Structures Préfabriquées</option>
+                <option>Façades & Aménagement</option>
+                <option>Menuiserie Métallique</option>
+                <option>Isolation & Étanchéité</option>
+                <option>Installations Techniques</option>
+                <option>Énergie Renouvelable</option>
+                <option>Ingénierie & Conseil</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fmsg">Votre message *</label>
+              <textarea class="form-textarea" id="fmsg" placeholder="Décrivez votre projet : superficie, localisation, délais souhaités, besoins spécifiques..." required></textarea>
+            </div>
+            <button class="btn-submit" onclick="submitForm()">
+              <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Envoyer ma demande
+            </button>
+          </div>
+        </div>
+        <!-- Info -->
+        <div class="contact-info-wrap">
+          <div class="contact-info-title">Nos coordonnées</div>
+          <p class="contact-info-sub">Nous sommes disponibles pour répondre à toutes vos questions.</p>
+          <div class="ci-item">
+            <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="ci-label">Adresse</div><div class="ci-val">Zone Industrielle de Chlef</div><div class="ci-sub">02000 Chlef, Algérie</div></div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.59 8a19.79 19.79 0 01-3.07-8.67A2 2 0 012.44 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.29 6.29l1.27-.69a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+            <div><div class="ci-label">Téléphone</div><div class="ci-val">+213 27 700 000</div><div class="ci-sub">Lun – Ven : 08h00 – 17h00</div></div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="ci-label">Email</div><div class="ci-val">contact@soprec-dz.com</div><div class="ci-sub">Réponse sous 48 heures ouvrables</div></div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <div><div class="ci-label">Fax</div><div class="ci-val">+213 27 700 001</div><div class="ci-sub">Pour envoi de documents officiels</div></div>
+          </div>
+          <div class="map-box">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <p>Zone Industrielle de Chlef, 02000 Chlef, Algérie</p>
+            <a href="https://maps.google.com/?q=Chlef+Zone+Industrielle+Algerie" target="_blank" rel="noopener">
+              Ouvrir dans Google Maps
+              <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /contact -->
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="foot-grid">
+      <!-- Brand -->
+      <div>
+        <div class="nav-logo" style="cursor:default">
+          <div class="logo-mark"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="logo-text">SOPREC<span>Constructions Préfabriquées</span></div>
+        </div>
+        <p class="foot-brand-desc" data-fr="Leader en construction préfabriquée, bâtiments métalliques et hangars industriels en Algérie depuis 1983. Basé à Chlef, actif sur tout le territoire national." data-en="Leader in prefabricated construction, metal buildings and industrial hangars in Algeria since 1983. Based in Chlef, active nationwide." data-ar="رائدة في البناء الجاهز والمباني المعدنية والأكواخ الصناعية بالجزائر منذ 1983.">Leader en construction préfabriquée, bâtiments métalliques et hangars industriels en Algérie depuis 1983. Basé à Chlef, actif sur tout le territoire national.</p>
+        <div class="foot-social">
+          <a href="#" class="foot-soc" aria-label="LinkedIn" title="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="foot-soc" aria-label="Facebook" title="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" class="foot-soc" aria-label="YouTube" title="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white" stroke="none"/></svg>
+          </a>
+          <a href="#" class="foot-soc" aria-label="WhatsApp" title="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- Navigation -->
+      <div class="foot-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('home');return false;" data-fr="Accueil" data-en="Home" data-ar="الرئيسية">Accueil</a></li>
+          <li><a href="#" onclick="showPage('about');return false;" data-fr="Qui sommes-nous" data-en="About" data-ar="من نحن">Qui sommes-nous</a></li>
+          <li><a href="#" onclick="showPage('services');return false;" data-fr="Services" data-en="Services" data-ar="الخدمات">Services</a></li>
+          <li><a href="#" onclick="showPage('projects');return false;" data-fr="Réalisations" data-en="Projects" data-ar="مشاريعنا">Réalisations</a></li>
+          <li><a href="#" onclick="showPage('contact');return false;" data-fr="Contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+        </ul>
+      </div>
+      <!-- Services -->
+      <div class="foot-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('services');return false;">Construction & Bâtiments</a></li>
+          <li><a href="#" onclick="showPage('services');return false;">Structures Préfabriquées</a></li>
+          <li><a href="#" onclick="showPage('services');return false;">Façades & Aménagement</a></li>
+          <li><a href="#" onclick="showPage('services');return false;">Menuiserie Métallique</a></li>
+          <li><a href="#" onclick="showPage('services');return false;">Énergie Renouvelable</a></li>
+          <li><a href="#" onclick="showPage('services');return false;">Ingénierie & Conseil</a></li>
+        </ul>
+      </div>
+      <!-- Contact -->
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <ul class="foot-contact">
+          <li><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Zone Industrielle, 02000 Chlef, Algérie</li>
+          <li><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.59 8a19.79 19.79 0 01-3.07-8.67A2 2 0 012.44 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.29 6.29l1.27-.69a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> +213 27 700 000</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> contact@soprec-dz.com</li>
+          <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Lun – Ven : 08h00 – 17h00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-copy">© 2025 <span>SOPREC</span> – Société de Constructions Préfabriquées. Tous droits réservés.</div>
+      <div class="foot-copy">Chlef, Algérie &nbsp;·&nbsp; <span>ISO 9001:2015</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║           JAVASCRIPT             ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<script>
+/* ── Page routing ── */
+const pages = ['home','about','services','projects','contact'];
+function showPage(id) {
+  pages.forEach(p => {
+    const el = document.getElementById('page-' + p);
+    if(el) el.classList.toggle('active', p === id);
+  });
+  // Update nav active
+  document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(a => {
+    const fn = a.getAttribute('onclick') || '';
+    a.classList.toggle('active', fn.includes("'" + id + "'"));
+  });
+  window.scrollTo({top: 0, behavior: 'smooth'});
+  setTimeout(initReveal, 120);
+}
+
+/* ── Mobile nav ── */
+function navGo(page) { showPage(page); closeMobile(); return false; }
+function toggleMobile() {
+  const m = document.getElementById('mobileMenu');
+  const h = document.getElementById('ham');
+  const open = m.classList.toggle('open');
+  h.classList.toggle('open', open);
+  h.setAttribute('aria-expanded', open);
+}
+function closeMobile() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('ham').classList.remove('open');
+  document.getElementById('ham').setAttribute('aria-expanded', 'false');
+}
+document.addEventListener('click', e => {
+  const m = document.getElementById('mobileMenu');
+  const h = document.getElementById('ham');
+  if (m.classList.contains('open') && !m.contains(e.target) && !h.contains(e.target)) closeMobile();
+});
+
+/* ── Scroll navbar ── */
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+}, {passive: true});
+
+/* ── Theme ── */
+let isDark = false;
+function toggleTheme() {
+  isDark = !isDark;
+  document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+  const btn = document.getElementById('themeBtn');
+  btn.innerHTML = isDark
+    ? `<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:var(--ink-soft);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>`
+    : `<svg id="theme-icon-sun" viewBox="0 0 24 24" style="width:16px;height:16px;stroke:var(--ink-soft);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+}
+
+/* ── Language ── */
+function setLang(lang) {
+  const dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.body.setAttribute('dir', dir);
+  document.documentElement.setAttribute('lang', lang);
+  document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+    const v = el.getAttribute('data-' + lang);
+    if (v.includes('<br>')) { el.innerHTML = v; }
+    else if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') { el.placeholder = v; }
+    else { el.textContent = v; }
+  });
+  // Sync all lang selects
+  document.querySelectorAll('.lang-sel,[name="lang"]').forEach(s => { if(s.value !== undefined) s.value = lang; });
+}
+
+/* ── Counter animation ── */
+function animateCounters() {
+  document.querySelectorAll('[data-count]').forEach(el => {
+    if (el.dataset.animated) return;
+    el.dataset.animated = '1';
+    const target = parseInt(el.getAttribute('data-count'));
+    const dur = 1600, steps = 60;
+    let cur = 0;
+    const step = target / steps;
+    const timer = setInterval(() => {
+      cur = Math.min(cur + step, target);
+      el.textContent = Math.floor(cur);
+      if (cur >= target) clearInterval(timer);
+    }, dur / steps);
+  });
+}
+setTimeout(animateCounters, 600);
+
+/* ── Scroll reveal ── */
+function initReveal() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => obs.observe(el));
+}
+initReveal();
+
+/* ── Accordion (services) ── */
+function toggleCat(head) {
+  const body = head.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  // close all
+  document.querySelectorAll('.srv-cat-head').forEach(h => {
+    h.classList.remove('open');
+    h.nextElementSibling.classList.remove('open');
+  });
+  if (!isOpen) {
+    head.classList.add('open');
+    body.classList.add('open');
+  }
+}
+
+/* ── Project filter ── */
+document.getElementById('filterBar').addEventListener('click', e => {
+  const btn = e.target.closest('.flt-btn');
+  if (!btn) return;
+  document.querySelectorAll('.flt-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const f = btn.getAttribute('data-f');
+  document.querySelectorAll('#projGrid .proj-full-card').forEach(c => {
+    const show = f === 'all' || c.getAttribute('data-cat') === f;
+    c.style.display = show ? '' : 'none';
+  });
+});
+
+/* ── Contact form ── */
+function submitForm() {
+  const n = document.getElementById('fname').value.trim();
+  const e = document.getElementById('femail').value.trim();
+  const m = document.getElementById('fmsg').value.trim();
+  if (!n || !e || !m) {
+    alert('Veuillez remplir tous les champs obligatoires (*).');
+    return;
+  }
+  document.getElementById('formWrap').innerHTML = `
+    <div class="form-success-state">
+      <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <h3>Demande envoyée !</h3>
+      <p>Merci <strong>${n}</strong>, notre équipe vous contactera sous 48 heures ouvrables.</p>
+    </div>`;
+}
+
+/* ── Responsive 2col fix ── */
+function applyResponsive() {
+  document.querySelectorAll('.responsive-2col').forEach(el => {
+    el.style.gridTemplateColumns = window.innerWidth < 768 ? '1fr' : '1fr 1fr';
+  });
+}
+applyResponsive();
+window.addEventListener('resize', applyResponsive);
+</script>
+</body>
+</html>
